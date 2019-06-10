@@ -3,7 +3,7 @@ servises:
   - docker
 
 before_install:
-  - docker build -t aderihoilya/react-test -f ./client/Dockerdile.dev ./client
+  - docker build -t aderihoilya/react-test -f ./client/Dockerfile.dev ./client
 
 script:
   - docker run aderihoilya/react-test npm run test -- --coverage
