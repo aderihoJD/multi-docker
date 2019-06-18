@@ -1,0 +1,36 @@
+{
+   "AWSEBDockerrunVersion": 2,
+   "containerDefinitions": [
+       {
+           "name": "cont-client",
+           "image": "aderihoilya/multi-client",
+           "hostname": "client",
+           "essential": false
+       },
+       {
+           "name": "cont-server",
+           "image": "aderihoilya/multi-server",
+           "hostname": "api",
+           "essential": false
+       },
+       {
+           "name": "cont-worker",
+           "image": "aderihoilya/multi-worker",
+           "essential": false
+       },
+       {
+           "name": "cont-nginx",
+           "image": "aderihoilya/multi-nginx",
+           "essential": true,
+           "portMappings": [
+               {
+                   "hostPort": 80,
+                   "containerPort": 80
+               }
+           ],
+           "links": [
+               "cont-client", "cont-server"
+           ]
+       }
+   ] 
+}
