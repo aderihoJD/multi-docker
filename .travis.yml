@@ -20,3 +20,17 @@ after_success:
   - docker push aderihoilya/multi-server
   - docker push aderihoilya/multi-nginx
   - docker push aderihoilya/multi-worker
+
+deploy:
+  provider: elasticbeanstalk
+  region: eu-central-1
+  app: multi-docker
+  env: MultiDocker-env
+  bucket_name: elasticbeanstalk-eu-central-1-984574339590
+  bucket-path: docker-multi
+  on:
+    branch: master
+  access_key_id: $AWS_ACCESS_KEY
+  secret_access_key:
+    secure: $AWS_SECRET_KEY
+
