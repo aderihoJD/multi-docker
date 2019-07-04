@@ -5,23 +5,27 @@
            "name": "cont-client",
            "image": "aderihoilya/multi-client",
            "hostname": "client",
-           "essential": false
+           "essential": false,
+           "memory": 128
        },
        {
            "name": "cont-server",
            "image": "aderihoilya/multi-server",
            "hostname": "api",
-           "essential": false
+           "essential": false,
+           "memory": 128
        },
        {
            "name": "cont-worker",
            "image": "aderihoilya/multi-worker",
-           "essential": false
+           "essential": false,
+           "memory": 128
        },
        {
            "name": "cont-nginx",
            "image": "aderihoilya/multi-nginx",
            "essential": true,
+           "memory": 128,
            "portMappings": [
                {
                    "hostPort": 80,
